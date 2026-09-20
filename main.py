@@ -3,8 +3,12 @@ from stats import get_num_words, get_chars_dict, chars_dict_to_sorted_list
 
 
 def get_book_text(path):
-    with open(path) as f:
-        return f.read()
+    try:
+        with open(path) as f:
+            return f.read()
+    except FileNotFoundError:
+        print(f"Error: The file at '{path}' could not be found.")
+        sys.exit(1)
 
 
 def print_report(book_path, num_words, sorted_chars):
