@@ -6,7 +6,7 @@
 
 ## 2. Two-Phase Data Processing (Dictionary to Sorted List)
 * **Decision:** Aggregate character counts inside a hash map (dictionary), then transform key-value pairs into a list of dictionary objects for sorting.
-* **Justification:** Dictionaries allow O(1) average time complexity for character lookups and updates during full-text scanning. However, sorting raw dictionary structures directly is clunky. Converting data into a list of structured records (`[{"char": c, "num": n}]`) enables clean sorting using Python's native `sort()` method with a custom extractor key (`sort_on`).
+* **Justification:** Sorting raw dictionary structures directly is clunky. Converting data into a list of structured records (`[{"char": c, "num": n}]`) enables clean sorting using Python's native `sort()` method with a custom extractor key (`sort_on`).
 
 ## 3. Deferred Filtering over Early Elimination
 * **Decision:** Track every single character (including spaces, punctuation, and digits) inside `get_chars_dict()`, but filter for alphabetic characters (`char.isalpha()`) inside `print_report()`.
